@@ -21,7 +21,7 @@ server <- function(input, output) {
   output$uiout <- renderUI({
     selectInput("clubname", "Club",
                 choices = CLUBNAMES[[clubType()]],
-                selected = club_default(clubType(),
+                selected = club_default("t", clubType(),
                                         c(input$driver_d_t,
                                           input$wood_d_t,
                                           input$longiron_d_t,
@@ -29,6 +29,19 @@ server <- function(input, output) {
                                           input$wedge_d_t,
                                           input$roughiron_d_t,
                                           input$sandwedge_d_t)))
+  })
+  
+  output$clevel <- renderUI({
+    selectInput("clublevel", "Level",
+                choices = c(1:10),
+                selected = club_default("l", clubType(),
+                                        c(input$driver_d_l,
+                                          input$wood_d_l,
+                                          input$longiron_d_l,
+                                          input$shortiron_d_l,
+                                          input$wedge_d_l,
+                                          input$roughiron_d_l,
+                                          input$sandwedge_d_l)))
   })
   
   

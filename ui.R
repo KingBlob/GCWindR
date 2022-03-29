@@ -14,7 +14,7 @@ ui <- fluidPage(
                 c("drivers", "woods", "longirons", "shortirons", "wedges", "roughirons", "sandwedges"),
                 selected = "drivers"),
     uiOutput("uiout"),
-    selectInput("clublevel", "Level", c(1,2,3,4,5,6,7,8,9,10)),
+    uiOutput("clevel"),
     uiOutput("shotdistance"),
     sliderInput("wind", "Wind", 0, 16, 0, round = -1, step = 0.1),
     verbatimTextOutput("minmax"),
