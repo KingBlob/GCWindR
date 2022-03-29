@@ -60,3 +60,37 @@ clubMinDist <- function(clubname) {
     return(output)
   }
 }
+
+# ctype - character vector of length 1
+# cdefaults - integer vector of length 7 (coerced to integer if not already)
+# returns a character vector of length 1 equivalent to the default club
+club_default <- function(ctype, cdefaults) {
+  cdefaults <- as.integer(cdefaults)
+  defaultindex <- 0
+  if(ctype == "drivers") {
+    defaultindex <- cdefaults[1]
+  }
+  else if(ctype == "woods") {
+    defaultindex <- cdefaults[2]
+  }
+  else if(ctype == "longirons") {
+    defaultindex <- cdefaults[3]
+  }
+  else if(ctype == "shortirons") {
+    defaultindex <- cdefaults[4]
+  }
+  else if(ctype == "wedges") {
+    defaultindex <- cdefaults[5]
+  }
+  else if(ctype == "roughirons") {
+    defaultindex <- cdefaults[6]
+  }
+  else if(ctype == "sandwedges") {
+    defaultindex <- cdefaults[7]
+  }
+  return(CLUBNAMES[[ctype]][defaultindex])
+  
+}
+
+
+

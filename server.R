@@ -19,15 +19,18 @@ server <- function(input, output) {
   })
   
   output$uiout <- renderUI({
-    tempselect <- CLUBNAMES[[clubType()]][as.integer(defaultdriver())]
     selectInput("clubname", "Club",
                 choices = CLUBNAMES[[clubType()]],
-                selected = tempselect)
+                selected = club_default(clubType(),
+                                        c(input$driver_d_t,
+                                          input$wood_d_t,
+                                          input$longiron_d_t,
+                                          input$shortiron_d_t,
+                                          input$wedge_d_t,
+                                          input$roughiron_d_t,
+                                          input$sandwedge_d_t)))
   })
   
-  defaultdriver <- reactive({
-    input$driver_d_t
-  })
   
   clubName <- reactive({
     input$clubname
